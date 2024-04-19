@@ -15,7 +15,7 @@ func main() {
 	}
 	for index, cert := range certs.PK {
 		commonName := strings.Replace(cert.Subject.CommonName, " ", "_", -1)
-		filename := fmt.Sprintf("PK-%s-%d.pem", commonName, index)
+		filename := fmt.Sprintf("PK-%s-%d.der", commonName, index)
 		err := os.WriteFile(filename, cert.Raw, 777)
 		if err != nil {
 			fmt.Printf("Could not write file at %s: %s\n", filename, err)
@@ -26,7 +26,7 @@ func main() {
 
 	for index, cert := range certs.KEK {
 		commonName := strings.Replace(cert.Subject.CommonName, " ", "_", -1)
-		filename := fmt.Sprintf("KEK-%s-%d.pem", commonName, index)
+		filename := fmt.Sprintf("KEK-%s-%d.der", commonName, index)
 		err := os.WriteFile(filename, cert.Raw, 777)
 		if err != nil {
 			fmt.Printf("Could not write file at %s: %s\n", filename, err)
@@ -37,7 +37,7 @@ func main() {
 
 	for index, cert := range certs.DB {
 		commonName := strings.Replace(cert.Subject.CommonName, " ", "_", -1)
-		filename := fmt.Sprintf("DB-%s-%d.pem", commonName, index)
+		filename := fmt.Sprintf("DB-%s-%d.der", commonName, index)
 		err := os.WriteFile(filename, cert.Raw, 777)
 		if err != nil {
 			fmt.Printf("Could not write file at %s: %s\n", filename, err)
